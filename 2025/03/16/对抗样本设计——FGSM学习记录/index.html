@@ -19,21 +19,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="JavaScript内置了很多方法来处理数据，这些方法在处理数据时非常实用，可以大大简化代码并提高可读性。在 TypeScript 中，这些方法同样适用 数组方法  splice(start, deleteCount, ...items)  作用: 从数组中添加或删除元素。 示例: nums.splice(2, 1, 100); 从索引 2 开始删除 1 个元素，并插入 100。">
+    <meta name="description" content="对抗样本设计——FGSM学习记录 什么是对抗样本 对于图像分类模型，假设我们对输入的图片进行恶意篡改，例如在原图片上叠加了一层由攻击者设计过的扰动（或噪声），会误导分类模型给出完全错误的分类结果。这种被添加了噪声的图片便是我们所说的对抗样本，这体现了分类模型对于对抗样本的脆弱性。 先看下图效果，通过对一个大熊猫照片加入一定的扰动（即噪音点），输入分类model之后就被判断为长臂猿。这种结果是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TS数据类型方法积累">
-<meta property="og:url" content="http://118.31.9.209/2025/03/13/TS%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%96%B9%E6%B3%95%E7%A7%AF%E7%B4%AF/index.html">
+<meta property="og:title" content="对抗样本设计——FGSM学习记录">
+<meta property="og:url" content="http://118.31.9.209/2025/03/16/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94FGSM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="奇冉的个人网站">
-<meta property="og:description" content="JavaScript内置了很多方法来处理数据，这些方法在处理数据时非常实用，可以大大简化代码并提高可读性。在 TypeScript 中，这些方法同样适用 数组方法  splice(start, deleteCount, ...items)  作用: 从数组中添加或删除元素。 示例: nums.splice(2, 1, 100); 从索引 2 开始删除 1 个元素，并插入 100。">
+<meta property="og:description" content="对抗样本设计——FGSM学习记录 什么是对抗样本 对于图像分类模型，假设我们对输入的图片进行恶意篡改，例如在原图片上叠加了一层由攻击者设计过的扰动（或噪声），会误导分类模型给出完全错误的分类结果。这种被添加了噪声的图片便是我们所说的对抗样本，这体现了分类模型对于对抗样本的脆弱性。 先看下图效果，通过对一个大熊猫照片加入一定的扰动（即噪音点），输入分类model之后就被判断为长臂猿。这种结果是">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-13T08:29:55.000Z">
-<meta property="article:modified_time" content="2025-03-13T08:51:44.186Z">
+<meta property="og:image" content="http://118.31.9.209/2025/03/16/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94FGSM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1.png">
+<meta property="og:image" content="http://118.31.9.209/2025/03/16/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94FGSM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/2.png">
+<meta property="article:published_time" content="2025-03-16T08:22:17.000Z">
+<meta property="article:modified_time" content="2025-03-16T08:35:27.766Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://118.31.9.209/2025/03/16/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94FGSM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1.png">
   
   
   
-  <title>TS数据类型方法积累 - 奇冉的个人网站</title>
+  <title>对抗样本设计——FGSM学习记录 - 奇冉的个人网站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="TS数据类型方法积累"></span>
+            <span id="subtitle" data-typed-text="对抗样本设计——FGSM学习记录"></span>
           
         </div>
 
@@ -223,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-13 16:29" pubdate>
-          2025年3月13日 下午
+        <time datetime="2025-03-16 16:22" pubdate>
+          2025年3月16日 下午
         </time>
       </span>
     
@@ -235,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.3k 字
         
       </span>
     
@@ -246,7 +249,7 @@
         
         
         
-          14 分钟
+          12 分钟
         
       </span>
     
@@ -292,253 +295,116 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">TS数据类型方法积累</h1>
+            <h1 id="seo-header">对抗样本设计——FGSM学习记录</h1>
             
             
               <div class="markdown-body">
                 
-                <p>JavaScript内置了很多方法来处理数据，这些方法在处理数据时非常实用，可以大大简化代码并提高可读性。在
-TypeScript 中，这些方法同样适用</p>
-<h2 id="数组方法">数组方法</h2>
+                <h2 id="对抗样本设计fgsm学习记录">对抗样本设计——FGSM学习记录</h2>
+<h3 id="什么是对抗样本">什么是对抗样本</h3>
+<p>对于图像分类模型，假设我们对输入的图片进行恶意篡改，例如在原图片上叠加了一层由攻击者设计过的扰动（或噪声），会误导分类模型给出完全错误的分类结果。这种<strong>被添加了噪声的图片</strong>便是我们所说的对抗样本，这体现了分类模型对于对抗样本的脆弱性。</p>
+<p>先看下图效果，通过对一个<strong>大熊猫</strong>照片加入一定的扰动（即噪音点），输入分类model之后就被判断为<strong>长臂猿</strong>。这种结果是很滑稽但是却很值得我们思考的，对抗样本为何会存在，我们又该如何应对。</p>
+<figure>
+<img src="/2025/03/16/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94FGSM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1.png" srcset="/img/loading.gif" lazyload alt="1">
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<h3 id="对抗样本为何存在">对抗样本为何存在</h3>
+<p>神经网络由多层神经元组成，每个神经元的输出是输入特征的线性组合经过非线性激活函数后的结果。这个运算过程大致要经历3步：</p>
 <ol type="1">
-<li><code>splice(start, deleteCount, ...items)</code>
+<li><p>计算权重</p>
+<p><span class="math inline">\(x_1 -&gt; w_1*x_1\)</span></p></li>
+<li><p>添加偏置</p>
+<p><span class="math inline">\(w_1*x_1 + w_2*x_2 + b\)</span></p></li>
+<li><p>计算激活函数</p>
+<p><span class="math inline">\(y = f(w_1*x_1 + w_2*x_2 + b)\)</span></p>
+<p>此处的激活函数一般使用的是sign函数（输入为负取-1，为正取1）</p></li>
+</ol>
+<figure>
+<img src="/2025/03/16/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94FGSM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/2.png" srcset="/img/loading.gif" lazyload alt="2">
+<figcaption aria-hidden="true">2</figcaption>
+</figure>
+<p>尽管非线性激活函数增加了模型的表达能力，但线性组合部分仍然保留了线性模型的敏感性。</p>
+<p>对抗样本的生成正是利用了这一点，通过在输入数据中添加精心设计的噪声，影响神经元的线性组合结果，从而误导模型的输出。</p>
+<h4 id="对抗样本的线性解释">对抗样本的线性解释</h4>
+<p>对抗样本<span class="math inline">\(\widetilde{x}\)</span>是由原样本<span class="math inline">\(x\)</span>上直接施加扰动<span class="math inline">\(\eta\)</span>得到的，即<span class="math inline">\(\widetilde{x} = x +
+\eta\)</span>，那么考虑到权重向量<span class="math inline">\(w\)</span>和对抗样本<span class="math inline">\(\widetilde{x}\)</span>的点积为<span class="math inline">\(w\widetilde{x}  = wx + w\eta,
+|\eta|&lt;\epsilon\)</span></p>
+<p>可以看出，对抗扰动使得激活函数的输入增加了<span class="math inline">\(w\eta\)</span></p>
+<p>假设权重向量<span class="math inline">\(w\)</span>有<span class="math inline">\(n\)</span>个维度，且权重向量中元素的平均值为<span class="math inline">\(m\)</span>，那么激活函数的输入会多出<span class="math inline">\(\epsilon m n\)</span></p>
+<p>因此，即使攻击者设计的扰动<span class="math inline">\(\eta\)</span>是微小的，并不会随模型维度<span class="math inline">\(n\)</span>的变化而变化，但是由扰动<span class="math inline">\(\eta\)</span>导致的<span class="math inline">\(\epsilon m n\)</span>却会随着模型维度<span class="math inline">\(n\)</span>而线性增长</p>
+<p>所以<strong>对抗样本的线性解释</strong>表明，对于线性模型而言，如果其输入样本有足够大的维度，那么线性模型也就容易受到对抗样本的攻击</p>
+<h3 id="非线性模型的线性扰动fgsm">非线性模型的线性扰动——FGSM</h3>
+<p>于是根据对抗样本的线性解释，有人提出了一种快速生成对抗样本的方法，也就是Fast
+Gradient Sign Method(FGSM)方法</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1412.6572">Explaining and harnessing
+adversarial examples</a></p>
+</blockquote>
+<p>假设模型的参数值为<span class="math inline">\(\theta\)</span>，模型的输入是<span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span>是模型对应的label值，<span class="math inline">\(J(\theta,x,y)\)</span>是训练神经网络的损失函数。那么对于某个特定的模型参数<span class="math inline">\(\theta\)</span>而言，FGSM方法的损失函数将近似线性化，从而或者保证无穷范数限制的最优的扰动，公式如下：</p>
+<p><span class="math inline">\(\eta = \epsilon sign (\nabla_x
+J(\theta,x,y))\)</span></p>
+<h4 id="详细解释">详细解释</h4>
+<ol type="1">
+<li><p><strong>模型参数和输入</strong>：</p>
 <ul>
-<li>作用: 从数组中添加或删除元素。</li>
-<li>示例: <code>nums.splice(2, 1, 100);</code> 从索引 2 开始删除 1
-个元素，并插入 100。</li>
+<li><span class="math inline">\(\theta\)</span>
+表示模型的参数，例如神经网络中的权重和偏置。</li>
+<li><span class="math inline">\(x\)</span>
+是模型的输入，例如一张图像。</li>
+<li><span class="math inline">\(y\)</span> 是输入 <span class="math inline">\(x\)</span> 对应的真实标签。</li>
 </ul></li>
-<li><code>slice(start, end)</code>
+<li><p><strong>损失函数</strong>：</p>
 <ul>
-<li>作用: 返回数组的一部分，不会修改原数组。</li>
-<li>示例: <code>let subArray = nums.slice(1, 3);</code> 返回从索引 1 到
-3（不包括 3）的子数组。</li>
+<li><span class="math inline">\(J(\theta,x,y)\)</span>
+是模型的损失函数，用于衡量模型输出与真实标签之间的差异。常见的损失函数包括交叉熵损失、均方误差等。</li>
 </ul></li>
-<li><code>map(callback)</code>
+<li><p><strong>梯度计算</strong>：</p>
 <ul>
-<li>作用:
-创建一个新数组，其元素是原数组元素经过回调函数处理后的结果。</li>
-<li>示例: <code>let doubled = nums.map(x =&gt; x * 2);</code>
-返回一个新数组，其中每个元素是原数组元素的两倍。</li>
+<li><span class="math inline">\(∇_xJ(\theta,x,y)\)</span> 表示损失函数 J
+对输入 <span class="math inline">\(x\)</span>
+的梯度。这个梯度向量的每个元素表示输入 <span class="math inline">\(x\)</span>
+的每个维度（例如图像的每个像素）对损失函数的贡献。</li>
 </ul></li>
-<li><code>filter(callback)</code>
+<li><p><strong>符号函数</strong>：</p>
 <ul>
-<li>作用: 创建一个新数组，包含通过回调函数测试的所有元素。</li>
-<li>示例: <code>let evens = nums.filter(x =&gt; x % 2 === 0);</code>
-返回一个新数组，包含所有偶数。</li>
+<li><span class="math inline">\(sign (\nabla_x
+J(\theta,x,y))\)</span>是梯度的符号函数，它将梯度向量中的每个元素转换为
++1 或 -1，具体取决于梯度的正负。这一步是为了确保扰动 <em>η</em>
+的方向与梯度方向一致。</li>
 </ul></li>
-<li><code>reduce(callback, initialValue)</code>
+<li><p><strong>扰动生成</strong>：</p>
 <ul>
-<li>作用: 对数组中的每个元素执行回调函数，返回一个累积的结果。</li>
-<li>示例: <code>let sum = nums.reduce((acc, x) =&gt; acc + x, 0);</code>
-返回数组中所有元素的和。</li>
+<li><span class="math inline">\(\eta = \epsilon sign (\nabla_x
+J(\theta,x,y))\)</span>表示生成的扰动。这里的 <em>ϵ</em>
+是一个超参数，控制扰动的幅度。无穷范数限制意味着每个维度的扰动绝对值不超过
+<em>ϵ</em>。</li>
 </ul></li>
-<li><code>forEach(callback)</code>
+<li><p><strong>对抗样本生成</strong>：</p>
 <ul>
-<li>作用: 对数组中的每个元素执行回调函数，不返回新数组。</li>
-<li>示例: <code>nums.forEach(x =&gt; console.log(x));</code>
-打印数组中的每个元素。</li>
-</ul></li>
-<li><code>find(callback)</code>
-<ul>
-<li>作用: 返回数组中第一个通过回调函数测试的元素。</li>
-<li>示例: <code>let found = nums.find(x =&gt; x &gt; 10);</code>
-返回数组中第一个大于 10 的元素。</li>
-</ul></li>
-<li><code>findIndex(callback)</code>
-<ul>
-<li>作用: 返回数组中第一个通过回调函数测试的元素的索引。</li>
-<li>示例: <code>let index = nums.findIndex(x =&gt; x &gt; 10);</code>
-返回数组中第一个大于 10 的元素的索引。</li>
-</ul></li>
-<li><code>some(callback)</code>
-<ul>
-<li>作用: 测试数组中是否有至少一个元素通过回调函数测试。</li>
-<li>示例: <code>let hasEven = nums.some(x =&gt; x % 2 === 0);</code>
-返回布尔值，表示数组中是否有偶数。</li>
-</ul></li>
-<li><code>every(callback)</code>
-<ul>
-<li>作用: 测试数组中的所有元素是否都通过回调函数测试。</li>
-<li>示例: <code>let allPositive = nums.every(x =&gt; x &gt; 0);</code>
-返回布尔值，表示数组中所有元素是否都为正数。</li>
-</ul></li>
-<li><code>push(item)</code>
-<ul>
-<li>作用: 在数组末尾添加一个元素。</li>
-<li>示例: <code>nums.push(5);</code> 在数组 nums 末尾添加元素 5。</li>
-</ul></li>
-<li><code>pop()</code>
-<ul>
-<li>作用: 移除并返回数组的最后一个元素。</li>
-<li>示例: <code>let last = nums.pop();</code> 移除并返回数组 nums
-的最后一个元素。</li>
-</ul></li>
-<li><code>shift()</code>
-<ul>
-<li>作用: 移除并返回数组的第一个元素。</li>
-<li>示例: <code>let first = nums.shift();</code> 移除并返回数组 nums
-的第一个元素。</li>
-</ul></li>
-<li><code>unshift(item)</code>
-<ul>
-<li>作用: 在数组开头添加一个元素。</li>
-<li>示例: <code>nums.unshift(0);</code> 在数组 nums 开头添加元素
-0。</li>
-</ul></li>
-<li><code>concat(...items)</code>
-<ul>
-<li>作用: 合并数组。</li>
-<li>示例: <code>let merged = nums.concat([4, 5], [6, 7]);</code>
-合并数组 nums 和 [4, 5] 以及 [6, 7]。</li>
-</ul></li>
-<li><code>indexOf(item)</code>
-<ul>
-<li>作用: 返回元素在数组中的索引。</li>
-<li>示例: <code>let index = nums.indexOf(3);</code> 返回元素 3 在数组
-nums 中的索引。</li>
-</ul></li>
-<li><code>includes(item)</code>
-<ul>
-<li>作用: 检查数组是否包含某个元素。</li>
-<li>示例: <code>let hasThree = nums.includes(3);</code> 检查数组 nums
-是否包含元素 3。</li>
-</ul></li>
-<li><code>sort(compareFunction)</code>
-<ul>
-<li>作用: 对数组进行排序。</li>
-<li>示例: <code>nums.sort((a, b) =&gt; a - b);</code> 对数组 nums
-进行升序排序。</li>
-</ul></li>
-<li><code>reverse()</code>
-<ul>
-<li>作用: 反转数组。</li>
-<li>示例: <code>nums.reverse();</code> 反转数组 nums 中的元素顺序。</li>
+<li><p>最终的对抗样本 <span class="math inline">\(\widetilde{x}\)</span>
+通过将扰动 <em>η</em> 加到原始输入 <span class="math inline">\(x\)</span> 上得到：</p>
+<p><span class="math inline">\(\widetilde{x} = x + \eta =x + \epsilon
+sign (\nabla_x J(\theta,x,y))\)</span></p></li>
 </ul></li>
 </ol>
-<h2 id="对象方法">对象方法</h2>
+<h4 id="为什么这样有效">为什么这样有效</h4>
 <ol type="1">
-<li><code>Object.keys(obj)</code>
+<li><strong>线性近似</strong>：
 <ul>
-<li>作用: 返回对象自身可枚举属性的数组。</li>
-<li>示例: <code>let keys = Object.keys(obj);</code> 返回对象 obj
-的所有键的数组。</li>
+<li>FGSM 方法假设在当前模型参数 <span class="math inline">\(\theta\)</span> 下，损失函数 J 对输入 <span class="math inline">\(x\)</span>
+的关系近似为线性。这种线性近似使得我们可以使用梯度信息来快速找到最优的扰动方向。</li>
 </ul></li>
-<li><code>Object.values(obj)</code>
+<li><strong>无穷范数限制</strong>：
 <ul>
-<li>作用: 返回对象自身可枚举属性值的数组。</li>
-<li>示例: <code>let values = Object.values(obj);</code> 返回对象 obj
-的所有值的数组。</li>
+<li>通过使用符号函数 sign，我们确保每个维度的扰动绝对值不超过
+<em>ϵ</em>。这不仅符合无穷范数的定义，还使得生成的对抗样本在视觉上与原始样本非常接近。</li>
 </ul></li>
-<li><code>Object.entries(obj)</code>
+<li><strong>最大化损失</strong>：
 <ul>
-<li>作用: 返回对象自身可枚举属性的键值对数组。</li>
-<li>示例: <code>let entries = Object.entries(obj);</code> 返回对象 obj
-的所有键值对的数组。</li>
-</ul></li>
-<li><code>Object.assign(target, ...sources)</code>
-<ul>
-<li>作用: 将一个或多个源对象的所有可枚举属性复制到目标对象。</li>
-<li>示例: <code>let merged = Object.assign(&#123;&#125;, obj1, obj2);</code> 将
-obj1 和 obj2 的属性合并到一个新对象中。</li>
-</ul></li>
-<li><code>Object.freeze(obj)</code>
-<ul>
-<li>作用: 冻结对象，使其不可修改。</li>
-<li>示例: <code>Object.freeze(obj);</code> 冻结对象
-obj，使其属性不可修改。</li>
+<li>扰动 <em>η</em>
+的方向与梯度方向一致，这意味着我们朝着使损失函数增加最快的方向添加扰动。这样可以确保生成的对抗样本能够有效地误导模型。</li>
 </ul></li>
 </ol>
-<h2 id="字符串方法">字符串方法</h2>
-<ol type="1">
-<li><code>split(separator)</code>
-<ul>
-<li>作用: 将字符串分割成数组。</li>
-<li>示例: <code>let parts = str.split(' ');</code> 将字符串 str
-按空格分割成数组。</li>
-</ul></li>
-<li><code>join(separator)</code>
-<ul>
-<li>作用: 将数组中的元素连接成一个字符串。</li>
-<li>示例: <code>let joined = arr.join('-');</code> 将数组 arr 中的元素用
-- 连接成字符串。</li>
-</ul></li>
-<li><code>substring(start, end)</code>
-<ul>
-<li>作用: 返回字符串的一部分，不会修改原字符串。</li>
-<li>示例: <code>let subStr = str.substring(1, 3);</code> 返回从索引 1 到
-3（不包括 3）的子字符串。</li>
-</ul></li>
-</ol>
-<h2 id="map">Map</h2>
-<p>Map 是一种键值对的集合，其中键和值可以是任何类型的数据。Map
-提供了一些方法来操作这些键值对。</p>
-<ul>
-<li>方法:
-<ol type="1">
-<li><code>set(key, value)</code>: 设置键值对。
-<ul>
-<li>示例: <code>map.set('name', 'Alice');</code> 设置键 'name'
-对应的值为 'Alice'。</li>
-</ul></li>
-<li><code>get(key)</code>: 获取键对应的值。
-<ul>
-<li>示例: <code>let name = map.get('name');</code> 获取键 'name'
-对应的值。</li>
-</ul></li>
-<li><code>has(key)</code>: 检查是否存在某个键。
-<ul>
-<li>示例: <code>let hasName = map.has('name');</code> 检查 'name'
-是否存在于 Map 中。</li>
-</ul></li>
-<li><code>delete(key)</code>: 删除键值对。
-<ul>
-<li>示例: <code>map.delete('name');</code> 删除键 'name'
-及其对应的值。</li>
-</ul></li>
-<li><code>clear()</code>: 清空 Map 中的所有键值对。
-<ul>
-<li>示例: <code>map.clear();</code> 清空 Map 中的所有键值对。</li>
-</ul></li>
-<li><code>size</code>: 返回 Map 中键值对的数量。
-<ul>
-<li>示例: <code>let size = map.size;</code> 获取 Map
-中键值对的数量。</li>
-</ul></li>
-</ol></li>
-<li>示例:</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br>map.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;Alice&#x27;</span>);<br>map.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">30</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(map.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;name&#x27;</span>)); <span class="hljs-comment">// 输出: Alice</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(map.<span class="hljs-title function_">has</span>(<span class="hljs-string">&#x27;age&#x27;</span>));  <span class="hljs-comment">// 输出: true</span><br>map.<span class="hljs-title function_">delete</span>(<span class="hljs-string">&#x27;age&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(map.<span class="hljs-property">size</span>);        <span class="hljs-comment">// 输出: 1</span><br></code></pre></td></tr></table></figure>
-<h2 id="set">Set</h2>
-<p>Set 是一种集合，其中每个值都是唯一的。Set
-提供了一些方法来操作这些值。</p>
-<ul>
-<li>方法:
-<ol type="1">
-<li><code>add(value)</code>: 添加一个值。
-<ul>
-<li>示例: <code>set.add(1);</code> 向 Set 中添加值 1。</li>
-</ul></li>
-<li><code>has(value)</code>: 检查是否存在某个值。
-<ul>
-<li>示例: <code>let hasOne = set.has(1);</code> 检查 1 是否存在于 Set
-中。</li>
-</ul></li>
-<li><code>delete(value)</code>: 删除某个值。
-<ul>
-<li>示例: <code>set.delete(1);</code> 删除值 1。</li>
-</ul></li>
-<li><code>clear()</code>: 清空 Set 中的所有值。
-<ul>
-<li>示例: <code>set.clear();</code> 清空 Set 中的所有值。</li>
-</ul></li>
-<li><code>size</code>: 返回 Set 中值的数量。
-<ul>
-<li>示例: <code>let size = set.size;</code> 获取 Set 中值的数量。</li>
-</ul></li>
-</ol></li>
-<li>示例:</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> set = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>();<br>set.<span class="hljs-title function_">add</span>(<span class="hljs-number">1</span>);<br>set.<span class="hljs-title function_">add</span>(<span class="hljs-number">2</span>);<br>set.<span class="hljs-title function_">add</span>(<span class="hljs-number">2</span>); <span class="hljs-comment">// 重复的值不会被添加</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(set.<span class="hljs-title function_">has</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 输出: true</span><br>set.<span class="hljs-title function_">delete</span>(<span class="hljs-number">1</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(set.<span class="hljs-property">size</span>);   <span class="hljs-comment">// 输出: 1</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -556,8 +422,8 @@ obj，使其属性不可修改。</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>TS数据类型方法积累</div>
-      <div>http://118.31.9.209/2025/03/13/TS数据类型方法积累/</div>
+      <div>对抗样本设计——FGSM学习记录</div>
+      <div>http://118.31.9.209/2025/03/16/对抗样本设计——FGSM学习记录/</div>
     </div>
     <div class="license-meta">
       
@@ -569,7 +435,7 @@ obj，使其属性不可修改。</li>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月13日</div>
+          <div>2025年3月16日</div>
         </div>
       
       
@@ -601,18 +467,12 @@ obj，使其属性不可修改。</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/16/%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94FGSM%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="对抗样本设计——FGSM学习记录">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">对抗样本设计——FGSM学习记录</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/08/image-test/" title="image_test">
-                        <span class="hidden-mobile">image_test</span>
+                      <a href="/2025/03/13/TS%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%96%B9%E6%B3%95%E7%A7%AF%E7%B4%AF/" title="TS数据类型方法积累">
+                        <span class="hidden-mobile">TS数据类型方法积累</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
